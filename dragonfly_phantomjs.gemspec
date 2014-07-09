@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tomas.celizna@gmail.com"]
   spec.summary       = %q{An encoder converting .html or .svg documents to .gif, .jpeg, .pdf or .png using PhantomJs}
   spec.description   = %q{An encoder converting .html or .svg documents to .gif, .jpeg, .pdf or .png using PhantomJs}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tomasc/dragonfly_phantomjs"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
