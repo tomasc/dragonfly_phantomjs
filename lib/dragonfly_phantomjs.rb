@@ -1,4 +1,5 @@
-require "dragonfly_phantomjs/phantomjs_processor"
+require "dragonfly"
+require "dragonfly_phantomjs/plugin"
 require "dragonfly_phantomjs/version"
 
 module DragonflyPhantomjs

@@ -1,10 +1,10 @@
-require 'dragonfly_phantomjs/processors/phantomjs_processor'
+require 'dragonfly_phantomjs/processors/rasterize'
 
 module DragonflyPhantomjs
   class Plugin
 
     def call app, opts={}
-      app.add_processor :phantomjs, DragonflyPhantomjs::Processors::PhantomjsProcessor.new
+      app.add_processor :rasterize, DragonflyPhantomjs::Processors::Rasterize.new
     end
 
   end
