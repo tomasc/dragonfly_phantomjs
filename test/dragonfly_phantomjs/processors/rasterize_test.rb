@@ -67,7 +67,7 @@ module DragonflyPhantomjs
       # ---------------------------------------------------------------------
 
       def get_mime_type file_path
-        `file -Ib #{file_path}`.gsub(/\n/, "")
+        `file --mime-type #{file_path}`.gsub(/\n/, "")
       end
 
     end
