@@ -5,7 +5,6 @@ require 'minitest/autorun'
 require 'minitest/spec'
 
 require 'dragonfly'
-require 'dragonfly_svg'
 require 'dragonfly_phantomjs'
 
 # ---------------------------------------------------------------------
