@@ -13,7 +13,6 @@ module DragonflyPhantomjs
     #
     # IMPORTANT: Requires +phantomjs+
 
-
     class Rasterize
 
       class UnsupportedFormat < RuntimeError; end
