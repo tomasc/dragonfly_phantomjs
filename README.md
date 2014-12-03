@@ -38,6 +38,7 @@ svg.rasterize(format, options)
 ```
 
 Formats: `:gif`, `:jpeg`, `:pdf`, `:png`
+
 Options:
 ```Ruby
 :border         - {number, string}, defaults to 0, supported units are 'mm', 'cm', 'in', 'px'
