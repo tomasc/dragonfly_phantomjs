@@ -1,6 +1,6 @@
 # DragonflyPhantomjs
 
-This encoder uses PhantomJs to convert .html or .svg documents to .gif, .jpeg, .pdf or .png
+This processor uses PhantomJs to convert .html or .svg documents to .gif, .jpeg, .pdf or .png
 
 In case of .svg file, the viewport_size is automatically set to the dimensions in the .svg file, unless explicitly specified in options
 
