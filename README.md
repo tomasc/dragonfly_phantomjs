@@ -1,5 +1,7 @@
 # Dragonfly PhantomJS
 
+[![Build Status](https://travis-ci.org/tomasc/dragonfly_phantomjs.svg)](https://travis-ci.org/tomasc/dragonfly_phantomjs) [![Gem Version](https://badge.fury.io/rb/dragonfly_phantomjs.svg)](http://badge.fury.io/rb/dragonfly_phantomjs) [![Coverage Status](https://img.shields.io/coveralls/tomasc/dragonfly_phantomjs.svg)](https://coveralls.io/r/tomasc/dragonfly_phantomjs)
+
 This [Dragonfly](https://github.com/markevans/dragonfly) plugin uses [PhantomJS](https://github.com/ariya/phantomjs) headless browser to convert `HTML` or `SVG` documents to `GIF`, `JPEG`, `PDF` or `PNG`
 
 If passed an `SVG` and the `viewport_size` is not specified in the options, the `viewport_size` is automatically set to the dimensions of the `SVG` file.
