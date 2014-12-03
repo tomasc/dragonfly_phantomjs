@@ -1,10 +1,8 @@
-**work in progress**
-
 # Dragonfly PhantomJS
 
-This [Dragonfly](https://github.com/markevans/dragonfly) encoder uses [PhantomJS](https://github.com/ariya/phantomjs) headless browser to convert .html or .svg documents to .gif, .jpeg, .pdf or .png
+This [Dragonfly](https://github.com/markevans/dragonfly) plugin uses [PhantomJS](https://github.com/ariya/phantomjs) headless browser to convert `HTML` or `SVG` documents to `GIF`, `JPEG`, `PDF` or `PNG`
 
-In case of .svg file, the viewport_size is automatically set to the dimensions in the .svg file, unless explicitly specified in options
+If passed an `SVG` and the `viewport_size` is not specified in the options, the `viewport_size` is automatically set to the dimensions of the `SVG` file.
 
 IMPORTANT: Requires [PhantomJS](http://phantomjs.org)
 
@@ -24,16 +22,30 @@ Or install it yourself as:
 
 ## Usage
 
-@param [Dragonfly::Tempfile]
-@param [Symbol] format
-@param [Hash] options
+Add the plugin to Dragonfly:
+
+```ruby
+Dragonfly.app.configure do
+  plugin :svg
+end
+```
+
+## Rasterize
+
+```ruby
+html.rasterize(format, options)
+svg.rasterize(format, options)
+```
+
+Formats: `:gif`, `:jpeg`, `:pdf`, `:png`
+Options:
+```Ruby
   :border         - {number, string}, defaults to 0, supported units are 'mm', 'cm', 'in', 'px'
   :format         - {string}, defaults to 'A4', supported formats are 'A4', 'A3', 'A5', 'Legal', 'Letter', 'Tabloid'
   :paper_size     - {string}, 'width*height', '300mm*300mm', supported units are 'mm', 'cm', 'in', 'px'
   :viewport_size  - {string}, 'width*height', '1440*900'
   :zoom_factor    - {number}, defaults to 1
-@return [Array]
-def encode temp_object, format=:pdf, options={}
+``
 
 ## Contributing
 
