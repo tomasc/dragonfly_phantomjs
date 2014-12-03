@@ -74,7 +74,7 @@ module Dragonfly
 
 
       def phantom_js_command script_name, input_file, output_file, options={}
-        run "phantomjs #{Modulor::Engine.root}/script/phantom_js/#{script_name} #{input_file.path} #{output_file.path} '#{options.to_json}'"
+        run "phantomjs #{DragonflyPhantomjs.root}/script/#{script_name} #{input_file.path} #{output_file.path} '#{options.to_json}'"
       end
 
 
