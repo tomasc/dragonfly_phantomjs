@@ -32,8 +32,7 @@ module DragonflyPhantomjs
             height = Dragonfly::Analysers::SvgAnalyser.new.(content)[:height]
             options[:viewport_size] = "#{width.to_i}*#{height.to_i}"
           end
-
-          "#{phantomjs_command} #{rasterize_script} #{old_path} #{new_path} '#{options.to_json}'"
+          "#{phantomjs_command} #{rasterize_script} #{old_path} #{new_path}"
         end
       end
 

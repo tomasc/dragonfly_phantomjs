@@ -10,4 +10,4 @@ module DragonflyPhantomjs
   end
 end
 
-Dragonfly::App.register_plugin(:phantomjs) { DragonflyPhantomjs::Plugin.new }
+Dragonfly::App.register_plugin(:phantomjs){ DragonflyPhantomjs::Plugin.new }

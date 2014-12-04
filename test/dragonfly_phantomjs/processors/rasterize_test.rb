@@ -4,7 +4,7 @@ module DragonflyPhantomjs
   module Processors
     describe Rasterize do
 
-      let(:app) { test_app.configure_with(:svg) }
+      let(:app) { test_app.configure_with(:phantomjs) }
       let(:processor) { DragonflyPhantomjs::Processors::Rasterize.new }
 
       let(:html) { Dragonfly::Content.new(app, SAMPLES_DIR.join('sample.html')) }
@@ -22,45 +22,45 @@ module DragonflyPhantomjs
 
       describe 'html' do
         it 'returns PDF' do
-          result = processor.call(html, :pdf, options)
-          get_mime_type(result.path).must_include "application/pdf"
+          processor.call(html, :pdf)
+          get_mime_type(html.path).must_include "application/pdf"
         end
 
         it 'returns PNG' do
-          result = processor.call(html, :png, options)
-          get_mime_type(result.path).must_include "image/png"
+          processor.call(html, :png, options)
+          get_mime_type(html.path).must_include "image/png"
         end
 
         it 'returns GIF' do
-          result = processor.call(html, :gif, options)
-          get_mime_type(result.path).must_include "image/gif"
+          processor.call(html, :gif, options)
+          get_mime_type(html.path).must_include "image/gif"
         end
 
         it 'returns JPEG' do
-          result = processor.call(html, :jpeg, options)
-          get_mime_type(result.path).must_include "image/jpeg"
+          processor.call(html, :jpeg, options)
+          get_mime_type(html.path).must_include "image/jpeg"
         end
       end
 
       describe 'svg' do
         it 'returns PDF' do
-          result = processor.call(svg, :pdf, options)
-          get_mime_type(result.path).must_include "application/pdf"
+          processor.call(svg, :pdf, options)
+          get_mime_type(svg.path).must_include "application/pdf"
         end
 
         it 'returns PNG' do
-          result = processor.call(svg, :png, options)
-          get_mime_type(result.path).must_include "image/png"
+          processor.call(svg, :png, options)
+          get_mime_type(svg.path).must_include "image/png"
         end
 
         it 'returns GIF' do
-          result = processor.call(svg, :gif, options)
-          get_mime_type(result.path).must_include "image/gif"
+          processor.call(svg, :gif, options)
+          get_mime_type(svg.path).must_include "image/gif"
         end
 
         it 'returns JPEG' do
-          result = processor.call(svg, :jpeg, options)
-          get_mime_type(result.path).must_include "image/jpeg"
+          processor.call(svg, :jpeg, options)
+          get_mime_type(svg.path).must_include "image/jpeg"
         end
       end
 
