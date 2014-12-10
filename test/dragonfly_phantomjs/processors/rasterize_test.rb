@@ -10,9 +10,11 @@ module DragonflyPhantomjs
       let(:html) { Dragonfly::Content.new(app, SAMPLES_DIR.join('sample.html')) }
       let(:svg) { Dragonfly::Content.new(app, SAMPLES_DIR.join('sample.svg')) }
 
+      let(:html_string) { Dragonfly::Content.new(app, '<html><head></head><body>foo</body></html>', name: 'foo.html') }
+
       let(:options) {
         {
-          border: 0,
+          margin: 0,
           format: 'A4',
           paper_size: '210mm*297mm',
           viewport_size: '1440*900',
@@ -61,6 +63,16 @@ module DragonflyPhantomjs
         it 'returns JPEG' do
           processor.call(svg, :jpeg, options)
           get_mime_type(svg.path).must_include "image/jpeg"
+        end
+      end
+
+      describe 'string' do
+        it 'returns PDF' do
+          obj = '<html><head></head><body>foo</body></html>'
+          def obj.original_filename; 'something.html'; end
+          html_string.update(obj)
+          processor.call(html_string, :pdf)
+          get_mime_type(html_string.path).must_include "application/pdf"
         end
       end
 
