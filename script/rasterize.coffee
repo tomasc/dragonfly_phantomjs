@@ -25,6 +25,7 @@ else
 
 
 margin = options['margin'] || 0
+border = options['border'] || 0
 format = options['format'] || 'A4'
 paper_size = options['paper_size']
 viewport_size = options['viewport_size']
@@ -53,10 +54,10 @@ if output.substr(-4) is ".pdf"
   if paper_size != undefined
     page_width = paper_size.split('*')[0]
     page_height = paper_size.split('*')[1]
-    page.paperSize = { width: page_width, height: page_height, margin: margin }
+    page.paperSize = { width: page_width, height: page_height, margin: margin, border: border }
 
   else if format != undefined
-    page.paperSize = { format: format, margin: margin }
+    page.paperSize = { format: format, margin: margin, border: border }
 
 if viewport_size != undefined
   viewport_width = viewport_size.split('*')[0]
