@@ -22,6 +22,8 @@ module DragonflyPhantomjs
       # :paper_size     - {string}, 'width*height', '300mm*300mm', supported units are 'mm', 'cm', 'in', 'px'
       # :viewport_size  - {string}, 'width*height', '1440*900'
       # :zoom_factor    - {number}, defaults to 1
+      # :header         - {hash}, {height: '10mm', contents: 'foo'}
+      # :footer         - {hash}, {height: '10mm', contents: 'foo'}
 
       def call content, format=:pdf, options={}
         raise UnsupportedFormat unless %w(gif jpeg pdf png).include?(format.to_s)

@@ -48,7 +48,11 @@ Options:
 :paper_size     - {string}, 'width*height', '300mm*300mm', supported units are 'mm', 'cm', 'in', 'px'
 :viewport_size  - {string}, 'width*height', '1440*900'
 :zoom_factor    - {number}, defaults to 1
+:header         - {hash}, {height: '10mm', content: 'Header content'}
+:footer         - {hash}, {height: '10mm', content: 'Footer content'}
 ```
+
+For now refer to the phantomjs [api](http://phantomjs.org/api/webpage/property/paper-size.html) for more details on how to construct the string for the header/footer. You can use `pageNum` and `numPages` as variables.
 
 ## Contributing
 

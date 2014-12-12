@@ -18,7 +18,15 @@ module DragonflyPhantomjs
           format: 'A4',
           paper_size: '210mm*297mm',
           viewport_size: '1440*900',
-          zoom_factor: 1
+          zoom_factor: 1,
+          header: {
+            height: '10mm',
+            content: 'foo'
+          },
+          footer: {
+            height: '10mm',
+            content: 'foo'
+          }
         }
       }
 
@@ -26,6 +34,7 @@ module DragonflyPhantomjs
         it 'returns PDF' do
           processor.call(html, :pdf)
           get_mime_type(html.path).must_include "application/pdf"
+          assert is_pdf(html.data)
         end
 
         it 'returns PNG' do
@@ -48,6 +57,7 @@ module DragonflyPhantomjs
         it 'returns PDF' do
           processor.call(svg, :pdf, options)
           get_mime_type(svg.path).must_include "application/pdf"
+          assert is_pdf(svg.data)
         end
 
         it 'returns PNG' do
@@ -73,10 +83,15 @@ module DragonflyPhantomjs
           html_string.update(obj)
           processor.call(html_string, :pdf)
           get_mime_type(html_string.path).must_include "application/pdf"
+          assert is_pdf(html_string.data)
         end
       end
 
       # ---------------------------------------------------------------------
+
+      def is_pdf data
+        data =~ /\A%PDF-1.4/
+      end
 
       def get_mime_type file_path
         `file --mime-type #{file_path}`.gsub(/\n/, "")

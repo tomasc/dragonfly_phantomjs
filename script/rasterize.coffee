@@ -34,6 +34,24 @@ user_agent = options['user_agent']
 referer = options['referer']
 element_id = options['element_id']
 
+header =
+  if options['header']
+    height: options['header']['height']
+    contents: phantom.callback((pageNum, numPages) ->
+      eval options['header']['content']
+    )
+  else
+    null
+
+footer =
+  if options['footer']
+    height: options['footer']['height']
+    contents: phantom.callback((pageNum, numPages) ->
+      eval options['footer']['content']
+    )
+  else
+    null
+
 
 
 # ---------------------------------------------------------------------
@@ -54,10 +72,10 @@ if output.substr(-4) is ".pdf"
   if paper_size != undefined
     page_width = paper_size.split('*')[0]
     page_height = paper_size.split('*')[1]
-    page.paperSize = { width: page_width, height: page_height, margin: margin, border: border }
+    page.paperSize = { width: page_width, height: page_height, margin: margin, border: border, header: header, footer: footer }
 
   else if format != undefined
-    page.paperSize = { format: format, margin: margin, border: border }
+    page.paperSize = { format: format, margin: margin, border: border, header: header, footer: footer }
 
 if viewport_size != undefined
   viewport_width = viewport_size.split('*')[0]
