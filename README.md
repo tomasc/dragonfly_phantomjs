@@ -48,11 +48,11 @@ Options:
 :paper_size     - {string}, 'width*height', '300mm*300mm', supported units are 'mm', 'cm', 'in', 'px'
 :viewport_size  - {string}, 'width*height', '1440*900'
 :zoom_factor    - {number}, defaults to 1
-:header         - {hash}, {height: '10mm', content: 'Header content'}
-:footer         - {hash}, {height: '10mm', content: 'Footer content'}
+:header         - {hash}, {height: '10mm', content: 'Header content', hide_on: [1]}
+:footer         - {hash}, {height: '10mm', content: 'Footer content', hide_on: [1]}
 ```
 
-For now refer to the phantomjs [api](http://phantomjs.org/api/webpage/property/paper-size.html) for more details on how to construct the string for the header/footer. You can use `pageNum` and `numPages` as variables.
+For now refer to the phantomjs [api](http://phantomjs.org/api/webpage/property/paper-size.html) for more details on how to construct the string for the header/footer. You can use `pageNum` and `numPages` as variables. The `hide_on` option takes an array of page numbers where the header and/or footer will be hidden.
 
 ## Contributing
 
