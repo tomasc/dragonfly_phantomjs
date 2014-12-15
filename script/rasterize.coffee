@@ -33,14 +33,12 @@ zoom_factor = options['zoom_factor'] || 1
 user_agent = options['user_agent']
 referer = options['referer']
 element_id = options['element_id']
-hide_header_on_pages = options['header']['hide_on'] || []
-hide_footer_on_pages = options['footer']['hide_on'] || []
 
 header =
   if options['header']
     height: options['header']['height']
     contents: phantom.callback((pageNum, numPages) ->
-      return "" if hide_header_on_pages.indexOf(pageNum) > -1
+      return "" if (options['header']['hide_on'] || []).indexOf(pageNum) > -1
       eval options['header']['content']
     )
   else
@@ -50,7 +48,7 @@ footer =
   if options['footer']
     height: options['footer']['height']
     contents: phantom.callback((pageNum, numPages) ->
-      return "" if hide_footer_on_pages.indexOf(pageNum) > -1
+      return "" if (options['footer']['hide_on'] || []).indexOf(pageNum) > -1
       eval options['footer']['content']
     )
   else
