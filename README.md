@@ -28,7 +28,7 @@ Add the plugin to Dragonfly:
 
 ```ruby
 Dragonfly.app.configure do
-  plugin :svg
+  plugin :phantomjs
 end
 ```
 
