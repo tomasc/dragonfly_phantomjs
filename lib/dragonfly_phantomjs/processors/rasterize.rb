@@ -48,7 +48,7 @@ module DragonflyPhantomjs
       end
 
       def rasterize_script
-        File.join(DragonflyPhantomjs.root, "script", "rasterize.coffee")
+        File.join(DragonflyPhantomjs.root, "script", "rasterize.js")
       end
 
     end
