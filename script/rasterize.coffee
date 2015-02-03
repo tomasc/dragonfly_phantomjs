@@ -1,14 +1,7 @@
-
-
-
 fs = require('fs')
 system = require('system')
 
-
-
 # ---------------------------------------------------------------------
-
-
 
 input = system.args[1]
 output = system.args[2]
@@ -18,11 +11,7 @@ if options_json = system.args[3]
 else
   options = {}
 
-
-
 # ---------------------------------------------------------------------
-
-
 
 margin = options['margin'] || 0
 border = options['border'] || 0
@@ -54,21 +43,13 @@ footer =
   else
     null
 
-
-
 # ---------------------------------------------------------------------
-
-
 
 page = require('webpage').create()
 page.settings.userAgent = options['user_agent'] if user_agent
 page.customHeaders = { 'Referer': options['referer'] } if referer
 
-
-
 # ---------------------------------------------------------------------
-
-
 
 if output.substr(-4) is ".pdf"
   if paper_size != undefined
@@ -86,11 +67,7 @@ if viewport_size != undefined
 
 page.zoomFactor = zoom_factor
 
-
-
 # ---------------------------------------------------------------------
-
-
 
 page.open input, ->
   if element_id
@@ -98,5 +75,3 @@ page.open input, ->
       document.getElementById('demo').getBoundingClientRect()
   page.render(output)
   phantom.exit()
-
-
