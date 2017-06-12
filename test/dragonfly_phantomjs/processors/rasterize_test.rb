@@ -42,11 +42,6 @@ module DragonflyPhantomjs
           get_mime_type(html.path).must_include "image/png"
         end
 
-        it 'returns GIF' do
-          processor.call(html, :gif, options)
-          get_mime_type(html.path).must_include "image/gif"
-        end
-
         it 'returns JPEG' do
           processor.call(html, :jpeg, options)
           get_mime_type(html.path).must_include "image/jpeg"
@@ -63,11 +58,6 @@ module DragonflyPhantomjs
         it 'returns PNG' do
           processor.call(svg, :png, options)
           get_mime_type(svg.path).must_include "image/png"
-        end
-
-        it 'returns GIF' do
-          processor.call(svg, :gif, options)
-          get_mime_type(svg.path).must_include "image/gif"
         end
 
         it 'returns JPEG' do
